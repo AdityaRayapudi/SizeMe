@@ -4,7 +4,7 @@
 python -m venv env
 ./env/scripts/activate
 pip install -r requirements.txt
-flask run
+python app.py
 ```
 
 **Mac OS / Linux**:
