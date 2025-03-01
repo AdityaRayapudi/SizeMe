@@ -23,10 +23,17 @@ app = Flask(__name__)
 # which tells the application which URL should call 
 # the associated function.
 @app.route('/')
-
 def index():
     return render_template('index.html', data = data)
 
+
+@app.route('/documentation')
+def doc():
+    return render_template('documentation.html')
+    
+@app.route('/demo')
+def demo():
+    return render_template('demo.html')
 
 # main driver function
 if __name__ == '__main__':
