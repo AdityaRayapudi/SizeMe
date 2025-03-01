@@ -1,7 +1,6 @@
 Authors:
 Kent Omolade
-Aditya Rayapudi
-
+Kal-Ab Yebeltal
 **Windows Git Bash**:
 
 ```bash
