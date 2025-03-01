@@ -1,5 +1,7 @@
 Authors:
 Kent Omolade
+Kal-Ab Yebeltal
+Aditya Rayapudi
 
 **Windows Git Bash**:
 
