@@ -1,3 +1,6 @@
+Authors:
+Kent Omolade
+
 **Windows Git Bash**:
 
 ```bash
