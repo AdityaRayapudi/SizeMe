@@ -16,7 +16,7 @@ pip3 install -r requirements.txt
 flask run
 ```
 
-The app should be running on [local host five thousand](http://localhost:5000)
+The app should be running on (http://localhost:5000)
 
 If you want to edit a page, just edit stuff inside:
 
