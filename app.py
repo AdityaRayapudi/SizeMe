@@ -1,6 +1,6 @@
 # Importing flask module in the project is mandatory
 # An object of Flask class is our WSGI application.
-from flask import Flask, make_response, render_template, request, Response
+from flask import Flask, make_response, render_template, jsonify, request, Response
 import cv2
 import time
 import numpy
@@ -60,17 +60,29 @@ def video_feed():
 def index():
     return render_template('index.html', data = data)
 
-@app.route('/doc/')
+@app.route('/doc')
 def doc():
     return render_template('doc.html', data = data)
 
-@app.route('/demo/')
+@app.route('/demo')
 def demo():
     return render_template('demo.html', data = data)
 
-@app.route('/camera/')
+@app.route('/camera')
 def camera():
     return render_template('camera.html', data = data)
+
+@app.route('/button', methods=['GET', 'POST'])
+def button():
+    if request.method == 'POST':
+        data = request.form
+        return 'Data received successfully'
+    return '''
+        <form method="post">
+            <input type="text" name="data">
+            <input type="submit" value="Submit">
+        </form>
+    '''
 
 
 cv2.destroyAllWindows()

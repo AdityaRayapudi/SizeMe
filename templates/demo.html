@@ -10,7 +10,7 @@
     <header>
         <div class="name">SizeMe</div>
         <div>
-        <img src="{{ url_for('video') }}" width="50%">
+        <img src="/logo.svg" width="50%">
         </div>
         <form action="/">
             <input type="submit" value="Home" />
@@ -21,10 +21,12 @@
         <h1>Demo</h1>
         <p>this is the demo page</p>
 
+        <form method="POST">
+            <input type="submit" value="Submit">
+        </form>
+
         <nav>
-            <form action="/video_feed/">
-                <input type="submit" value="Press To Demo" />
-            </form>
+            <img src="{{ url_for('video_feed') }}" height="100%">
         </nav>
     </main>
 </body>
