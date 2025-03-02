@@ -43,14 +43,12 @@ class PoseDetector:
         return lmList
     
 def Points(Points):
-    shoulderWidth = math.dist(Points[12][1:2], Points[11][1:2])
-    rightArm = math.dist(Points[14][1:2], Points[12][1:2])
-    leftArm = math.dist(Points[13][1:2], Points[11][1:2])
-    height = (math.dist(Points[0][1:2], Points[26][1:2])+math.dist(Points[0][1:2], Points[23][1:2]))/2
-    shoulderToWaist = math.dist(Points[11][1:2], Points[23][1:2])
+    shoulderWidth = math.dist(Points[11][1], Points[12][1])
+    rightArm = math.dist(Points[12][1:], Points[14][1:])+math.dist(Points[14][1:], Points[16][1:])
+    height = Points[32][2]-Points[0][2]
+    shoulderToWaist = math.dist(Points[11][2], Points[23][2])
     print("Shoulder Width: ", shoulderWidth)
     print("Shoulder to Waist Length: ", shoulderToWaist)
     print("Right Arm: ", rightArm)
-    print("Left Arm: ", leftArm)
     print("Height: ", height)
-    return [shoulderWidth,rightArm,leftArm,height,shoulderToWaist]
+    return [shoulderWidth,rightArm,shoulderToWaist,height]
