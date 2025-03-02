@@ -95,8 +95,9 @@ def predict_measurements(measurements, height, gender):
 
     x_data = torch.tensor(data, dtype=torch.float32)
     predictions = model(x_data)
-    print(x_data)
-    print(predictions)
+    data.extend(x_data[0].tolist())
+    data.extend(predictions[0].tolist())
+
 
 
 @app.route('/video_feed')
