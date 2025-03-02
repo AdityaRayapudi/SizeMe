@@ -1,34 +1,152 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: white;
+    background-color: white; 
+    color: black; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    min-height: 100vh; 
 }
 
 header {
+    width: 100%; 
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    padding: 16px;
-    background-color: black;
-    color: white;
+    padding-top: 40px; 
 }
 
-header .logo {
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white; 
+    border: 0.5px solid gray; 
+    border-radius: 50px; 
+    padding: 12px 30px; 
+    width: 95%; 
+    max-width: 1250px; 
+}
+
+.navbar .logo {
     display: flex;
     align-items: center;
     font-size: 1.5rem;
     font-weight: bold;
+    color: black; 
 }
 
-header .logo-img {
+.navbar .logo-img {
     height: 40px;
     margin-right: 10px;
 }
 
-main {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0; 
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 24px; 
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
 }
 
+.navbar nav a {
+    display: flex; 
+    align-items: center; 
+    color: black; 
+    text-decoration: none;
+    font-weight: 250; 
+    font-size: 0.9rem;
+    gap: 8px; 
+}
+
+.navbar .github-link {
+    display: flex; 
+    align-items: center; 
+    color: black; 
+    text-decoration: none;
+    font-weight: 500; 
+    font-size: 0.9rem;
+    gap: 8px; 
+}
+
+.navbar .github-link:hover {
+    color: black; 
+}
+
+.nav-icon {
+    height: 20px; 
+    width: 20px; 
+}
+
+
+main.documentation {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    flex: 1; 
+}
+
+.documentation h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.documentation .intro {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.documentation section {
+    margin-bottom: 40px;
+}
+
+.documentation section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.documentation section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: black;
+}
+
+.documentation section ol {
+    list-style-type: decimal;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.documentation section ol li {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: black;
+}
+
+/*  change this shi white */
+pre {
+    background-color: lightgray; 
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: black;  
+    border: 1px solid #ccc;   
+    overflow-x: auto;  
+}
+
+code {
+    display: block;
+    white-space: pre-wrap;  
+    word-wrap: break-word;
+    color: black;  
+}
