@@ -1,7 +1,8 @@
 function injectSizeButton() {
-  const targetTexts = ['Sizes', 'Select Size', 'Choose Size', 'Size Options', 'Size Guide'];
-  const productContainers = document.querySelectorAll('div, section, form');
-  let sizeElement = null;
+   
+    const targetTexts = ['Sizes', 'Select Size', 'Choose Size', 'Size Options', 'Size Guide'];
+  
+
 
   // Find the size element on the page
   for (const container of productContainers) {
@@ -87,6 +88,6 @@ function injectSizeButton() {
   } else {
       console.error('Size element not found');
   }
-}
-
-injectSizeButton();
+  
+  
+  injectSizeButton();
