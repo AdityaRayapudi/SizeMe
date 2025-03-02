@@ -49,7 +49,8 @@ def Points(Points):
     height = (math.dist(Points[0][1:2], Points[26][1:2])+math.dist(Points[0][1:2], Points[23][1:2]))/2
     shoulderToWaist = math.dist(Points[11][1:2], Points[23][1:2])
     print("Shoulder Width: ", shoulderWidth)
+    print("Shoulder to Waist Length: ", shoulderToWaist)
     print("Right Arm: ", rightArm)
     print("Left Arm: ", leftArm)
     print("Height: ", height)
-    return [shoulderWidth,rightArm,leftArm,height]
+    return [shoulderWidth,rightArm,leftArm,height,shoulderToWaist]
