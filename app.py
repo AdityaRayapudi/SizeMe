@@ -37,6 +37,7 @@ def gen_frames():
 
     while True:
         success, img = cap.read()
+        cv2.flip(img,1)
         if success:
             img = detector.findPose(img)
             lmList = detector.getPosition(img)
@@ -47,11 +48,13 @@ def gen_frames():
                 cv2.putText(img, str(int(10-(newTime-startTime))), (250, 250), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 3)
 
                 if int(10-(newTime-startTime)) == 0:
+                    measurments = pm.Points(lmList)
+                    print(measurments)
                     startCountdown = False
                     break
 
             try:
-                ret, buffer = cv2.imencode('.jpg', cv2.flip(img,1))
+                ret, buffer = cv2.imencode('.jpg', img)
                 img = buffer.tobytes()
                 yield (b'--frame\r\n'
                         b'Content-Type: image/jpeg\r\n\r\n' + img + b'\r\n')
