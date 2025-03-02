@@ -8,22 +8,11 @@ import PoseModule as pm
 import base64
 import json
 
-global startTime, startCountdown
+global startTime, startCountdown, data
 startCountdown = False
 startTime = 0
 
-data=[
-    {
-        'name':'Audrin',
-        'place': 'kaka',
-        'mob': '7736'
-    },
-    {
-        'name': 'Stuvard',
-        'place': 'Goa',
-        'mob' : '546464'
-    }
-]
+data=[]
 # Flask constructor takes the name of 
 # current module (__name__) as argument.
 app = Flask(__name__)
@@ -71,6 +60,7 @@ def start_timer():
     startTime = time.time()
     startCountdown = True
 
+
 @app.route('/video_feed')
 def video_feed():
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
@@ -84,9 +74,9 @@ def index():
 
 @app.route('/doc')
 def doc():
-    return render_template('doc.html', data = data)
+    return render_template('documentation.html', data = data)
 
-@app.route('/demo', methods = ['POST', 'GET'])
+@app.route('/demo/', methods = ['POST', 'GET'])
 def demo():
     if request.method == 'POST':
         start_timer()
@@ -95,9 +85,14 @@ def demo():
     else:
         return render_template('demo.html')
 
-@app.route('/camera')
-def camera():
-    return render_template('camera.html', data = data)
+@app.route('/results', methods = ['POST', 'GET'])
+def results():
+    global data
+    if request.method == 'POST':
+        height = request.form.get("height")
+        category = request.form.get("category")
+        data = [height, category]
+        return render_template('results.html', data = data)
 
 
 cv2.destroyAllWindows()

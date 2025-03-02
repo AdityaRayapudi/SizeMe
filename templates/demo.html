@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo</title>
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/demostyle.css">
 </head>
 <body>
     <header>
@@ -19,16 +19,22 @@
         <p>this is the demo page</p>
 
         <form method="POST">
-            <input type="submit" value="Submit">
+            <input type="submit" value="Take Picture">
         </form>
-
-
-        <form action="" method="POST">
-            <input type="submit">
-        </form>
-
 
         <img src="{{ url_for('video_feed') }}" height="80%">
+
+        <form action="{{ url_for('results') }}" method="POST">
+            <input type="radio" id="men" name="category" value="MEN">
+            <label for="men">Men's</label><br>
+            <input type="radio" id="women" name="category" value="WOMEN">
+            <label for="women">Women's</label><br>
+
+            <label for="fname">Height:</label>
+            <input type="text" id="height" name="height"><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
 
     </main>
 </body>
