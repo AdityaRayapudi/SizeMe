@@ -87,6 +87,7 @@ def predict_measurements(measurements, height, gender):
     height = float(height)
     gender = float(gender)
 
+    output = []
     conversion_rate = height / measurements[3]
     data = [[i * conversion_rate for i in measurements]]
 
@@ -95,9 +96,9 @@ def predict_measurements(measurements, height, gender):
 
     x_data = torch.tensor(data, dtype=torch.float32)
     predictions = model(x_data)
-    data.extend(x_data[0].tolist())
-    data.extend(predictions[0].tolist())
-    return render_template('results.html', data = data)
+    output = x_data[0].tolist() + predictions[0].tolist()
+    output = [round(i,2) for i in output]
+    return output
 
 
 
@@ -132,7 +133,9 @@ def results():
     if request.method == 'POST':
         height = request.form.get("height")
         category = request.form.get("category")
-        predict_measurements(measurments, height, category)
+        output =  predict_measurements(measurments, height, category)
+        print(output)
+        return render_template('results.html', data = output)
 
 
 cv2.destroyAllWindows()
