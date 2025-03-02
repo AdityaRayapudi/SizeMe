@@ -4,24 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Installation</title>
-    <link rel="stylesheet" href="../static/css/docstyle.css">
+    <link rel="stylesheet" href="../static/css/docstyle.css"> 
 </head>
 <body>
     <header>
-        <div class="name">SizeMe</div>
+        <div class="navbar">
+            <div class="logo">
+                <img src="../static/images/logo.svg" alt="SizeMe Logo" class="logo-img">
+                SizeMe
+            </div>
+            <nav>
+                <a href="documentation.html">
+                    <img src="../static/images/doc.svg" alt="Docs Icon" class="nav-icon">
+                    Documentation
+                </a>
+                <a href="demo.html">
+                    <img src="../static/images/launch.svg" alt="Demo Icon" class="nav-icon">
+                    Demo
+                </a>
+            </nav>
+            <a href="https://github.com" target="_blank" class="github-link">
+                <img src="../static/images/github.svg" alt="GitHub Icon" class="nav-icon">
+                GitHub
+            </a>
+        </div>
     </header>
 
-    <main>
+    <main class="documentation">
         <h1>Get Started with SizeMe</h1>
-        <p class="intro">put soemthing here</p>
-    
+        <p class="intro">Put some words here like a doc page blah blah <!-- explain what is here stuff here-->
+        </p>
+
         <section class="windows">
-            <h2>Windows</h2>
-            <p>instructions go here</p>
+            <h2>Windows Installation</h2>
+            <p>To install SizeMe on Windows:</p>
+            <!--explain some stuff here-->
+            <pre><code class="language-bash">python -m venv env
+source ./env/scripts/activate
+pip install -r requirements.txt
+flask run</code></pre>
         </section>
-    
+
         <section class="mac">
-            <h2>Mac</h2>
-            <p>instructions go here</p>
+            <!--put some doc stuff here-->
+            <h2>Mac OS / Linux Installation</h2>
+            <p>To install SizeMe on macOS or Linux:</p>
+            <pre><code class="language-bash">python3 -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+flask run</code></pre>
         </section>
-    </main>
+
+        <section class="usage">
+            <h2>Usage</h2>
+            <p>How to use SizeMe in your project:</p>
+            <!--put some doc stuff here-->
+            <pre><code class="language-javascript">how to initliaze here;</code></pre>
+        </section>
+</body>
+</html>
