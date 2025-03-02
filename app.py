@@ -49,7 +49,7 @@ def gen_frames():
 
     while True:
         success, img = cap.read()
-        cv2.flip(img,1)
+        img = cv2.flip(img,1)
         if success:
             img = detector.findPose(img)
             lmList = detector.getPosition(img)
