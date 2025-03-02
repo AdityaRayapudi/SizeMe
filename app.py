@@ -8,6 +8,10 @@ import PoseModule as pm
 import base64
 import json
 
+global startTime, startCountdown
+startCountdown = False
+startTime = 0
+
 data=[
     {
         'name':'Audrin',
@@ -27,7 +31,8 @@ app = Flask(__name__)
 def gen_frames():
     cap = cv2.VideoCapture(0)
 
-    global out, capture,rec_frame
+    global out, capture, rec_frame, startCountdown, startTime
+
     detector = pm.PoseDetector()
 
     while True:
@@ -35,6 +40,15 @@ def gen_frames():
         if success:
             img = detector.findPose(img)
             lmList = detector.getPosition(img)
+
+            newTime = time.time()
+
+            if startCountdown == True:
+                cv2.putText(img, str(int(10-(newTime-startTime))), (250, 250), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 3)
+
+                if int(10-(newTime-startTime)) == 0:
+                    startCountdown = False
+                    break
 
             try:
                 ret, buffer = cv2.imencode('.jpg', cv2.flip(img,1))
@@ -48,6 +62,14 @@ def gen_frames():
     else:
         pass
         # cv2.imshow("Image", img)
+
+def start_timer():
+    global startTime, startCountdown
+
+    print("Hi")
+
+    startTime = time.time()
+    startCountdown = True
 
 @app.route('/video_feed')
 def video_feed():
@@ -64,25 +86,18 @@ def index():
 def doc():
     return render_template('doc.html', data = data)
 
-@app.route('/demo')
+@app.route('/demo', methods = ['POST', 'GET'])
 def demo():
-    return render_template('demo.html', data = data)
+    if request.method == 'POST':
+        start_timer()
+        return render_template('demo.html')
+        # print("HI")
+    else:
+        return render_template('demo.html')
 
 @app.route('/camera')
 def camera():
     return render_template('camera.html', data = data)
-
-@app.route('/button', methods=['GET', 'POST'])
-def button():
-    if request.method == 'POST':
-        data = request.form
-        return 'Data received successfully'
-    return '''
-        <form method="post">
-            <input type="text" name="data">
-            <input type="submit" value="Submit">
-        </form>
-    '''
 
 
 cv2.destroyAllWindows()
