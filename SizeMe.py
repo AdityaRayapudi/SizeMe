@@ -29,8 +29,11 @@ while True:
         newTime = startTime
         time.process_time()
     if cTime >= fullTime:
+        finalPoints = lmList
         break
     
     cv2.imshow("Image", img)
 cap.release()
 cv2.destroyAllWindows()
+measurements = pm.Points(finalPoints)
+print(measurements)
