@@ -6,7 +6,7 @@ Aditya Rayapudi
 **Windows Git Bash**:
 
 ```bash
-python -m venv env --python=python3.12.6
+python -m venv env
 ./env/scripts/activate
 pip install -r requirements.txt
 python app.py
@@ -15,7 +15,7 @@ python app.py
 **Mac OS / Linux**:
 
 ```bash
-python3 -m venv env --python=python3.12.6
+python3 -m venv env
 source env/bin/activate
 pip3 install -r requirements.txt
 flask run
