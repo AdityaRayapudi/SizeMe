@@ -45,7 +45,7 @@ function injectSizeButton() {
 
       // Create the iframe to load the external website
       const iframe = document.createElement('iframe');
-      iframe.src = "http://127.0.0.1:5000";  // Replace with your actual URL
+      iframe.src = "http://127.0.0.1:5000/demo";  // Replace with your actual URL
       iframe.style.width = '100%';
       iframe.style.height = '100%'; // Fill modal
       iframe.style.border = 'none';
