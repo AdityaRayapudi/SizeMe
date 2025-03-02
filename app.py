@@ -49,7 +49,7 @@ def gen_frames():
 
     while True:
         success, img = cap.read()
-        img = cv2.flip(img,1)
+        cv2.flip(img,1)
         if success:
             img = detector.findPose(img)
             lmList = detector.getPosition(img)
@@ -133,16 +133,7 @@ def results():
         data = [height, category]
         return render_template('results.html', data = data)
 
-@app.route('/popup', methods = ['POST', 'GET'])
-def popup():
-    if request.method == 'POST':
-        start_timer()
-        return render_template('popup.html')
-        # print("HI")
-    else:
-        return render_template('popup.html')
-    
-    
+
 cv2.destroyAllWindows()
 
 # main driver function
@@ -150,4 +141,4 @@ if __name__ == '__main__':
 
     # run() method of Flask class runs the application 
     # on the local development server.
-    app.run(host='0.0.0.0', port = 10000)
+    app.run(debug=True)
