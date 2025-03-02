@@ -91,7 +91,7 @@ def predict_measurements(measurements, height, gender):
     data = [[i * conversion_rate for i in measurements]]
 
     data[0].insert(0, gender)
-    data[0][3] = height
+    data[0][4] = height
 
     x_data = torch.tensor(data, dtype=torch.float32)
     predictions = model(x_data)
