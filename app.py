@@ -133,7 +133,16 @@ def results():
         data = [height, category]
         return render_template('results.html', data = data)
 
-
+@app.route('/popup', methods = ['POST', 'GET'])
+def popup():
+    if request.method == 'POST':
+        start_timer()
+        return render_template('popup.html')
+        # print("HI")
+    else:
+        return render_template('popup.html')
+    
+    
 cv2.destroyAllWindows()
 
 # main driver function
