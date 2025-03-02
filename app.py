@@ -74,7 +74,7 @@ def video_feed():
 def index():
     return render_template('index.html', data = data)
 
-@app.route('/doc')
+@app.route('/doc/')
 def doc():
     return render_template('documentation.html', data = data)
 

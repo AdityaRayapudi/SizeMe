@@ -8,34 +8,58 @@
 </head>
 <body>
     <header>
-        <div class="name">SizeMe</div>
-        <form action="/">
-            <input type="submit" value="Home" />
-        </form>
+        <div class="navbar">
+            <div class="logo">
+                <img src="../static/images/logo.svg" alt="SizeMe Logo" class="logo-img">
+                FitMe
+            </div>
+            <nav>
+                <a href="/">
+                    <img src="../static/images/home.svg" alt="home Icon" class="nav-icon">
+                    Home
+                </a>
+                <a href="/doc">
+                    <img src="../static/images/doc.svg" alt="Docs Icon" class="nav-icon">
+                    Documentation
+                </a>
+            </nav>
+            <a href="https://github.com/AdityaRayapudi/SizeMe" target="_blank" class="github-link">
+                <img src="../static/images/github.svg" alt="GitHub Icon" class="nav-icon">
+                GitHub
+            </a>
+        </div>
     </header>
 
     <main>
         <h1>Demo</h1>
-        <p>this is the demo page</p>
+        <section>
+            <p>Find your size!</p>
+            <p>Press "Fit Me" and step back</p>
+            <p>until your whole body is in frame.</p>
+        </section>
 
         <form method="POST">
-            <input type="submit" value="Take Picture">
+            <input class="fit" type="submit" value="Fit Me">
         </form>
 
-        <img src="{{ url_for('video_feed') }}" height="80%">
+        <img class="video" src="{{ url_for('video_feed') }}" height="80%">
 
-        <form action="{{ url_for('results') }}" method="POST">
-            <input type="radio" id="men" name="category" value="MEN">
-            <label for="men">Men's</label><br>
-            <input type="radio" id="women" name="category" value="WOMEN">
-            <label for="women">Women's</label><br>
+        <section class="info">
+            <p>Clothing Category:</p>
+            <form action="{{ url_for('results') }}" method="POST">
+                <input type="radio" id="men" name="category" value="MEN">
+                <label for="men">Men's</label><br>
+                <input type="radio" id="women" name="category" value="WOMEN">
+                <label for="women">Women's</label><br>
+                <p></p>
 
-            <label for="fname">Height:</label>
-            <input type="text" id="height" name="height"><br><br>
+                <label for="height">Height (inches):</label>
+                <input type="text" id="height" name="height"><br><br>
 
-            <button type="submit">Submit</button>
-        </form>
-
+                <button class="finalSub" type="submit">Submit</button>
+                <p></p>
+            </form>
+        </section>
     </main>
 </body>
 </html>
