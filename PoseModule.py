@@ -2,6 +2,7 @@ import cv2
 import mediapipe as mp
 import time
 import math
+
 class PoseDetector:
 
     def __init__(self, mode = False, upBody = False, smooth=True, detectionCon = 0.5, trackCon = 0.5):
@@ -39,7 +40,8 @@ class PoseDetector:
                 lmList.append([id, cx, cy])
             if draw:
                 cv2.circle(img, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
-        return lmList    
+        return lmList
+    
 def Points(Points):
     shoulderWidth = math.dist(Points[12], Points[11])
     rightArm = math.dist(Points[14], Points[12])
@@ -49,3 +51,4 @@ def Points(Points):
     print("Right Arm: ", rightArm)
     print("Left Arm: ", leftArm)
     print("Height: ", height)
+    return [shoulderWidth,rightArm,leftArm,height]
