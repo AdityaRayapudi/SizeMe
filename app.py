@@ -87,6 +87,7 @@ def predict_measurements(measurements, height, gender):
     height = float(height)
     gender = float(gender)
 
+    output = []
     conversion_rate = height / measurements[3]
     data = [[i * conversion_rate for i in measurements]]
 
@@ -95,8 +96,11 @@ def predict_measurements(measurements, height, gender):
 
     x_data = torch.tensor(data, dtype=torch.float32)
     predictions = model(x_data)
-    print(x_data)
-    print(predictions)
+    output = x_data[0].tolist() + predictions[0].tolist()
+    output = [round(i,2) for i in output]
+    return output
+
+
 
 
 @app.route('/video_feed')
@@ -129,9 +133,9 @@ def results():
     if request.method == 'POST':
         height = request.form.get("height")
         category = request.form.get("category")
-        predict_measurements(measurments, height, category)
-        data = [height, category]
-        return render_template('results.html', data = data)
+        output =  predict_measurements(measurments, height, category)
+        print(output)
+        return render_template('results.html', data = output)
 
 
 cv2.destroyAllWindows()
@@ -141,4 +145,4 @@ if __name__ == '__main__':
 
     # run() method of Flask class runs the application 
     # on the local development server.
-    app.run(host='0.0.0.0', port = 10000)
+    app.run(debug=True)

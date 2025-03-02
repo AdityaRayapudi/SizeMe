@@ -8,15 +8,34 @@
 </head>
 <body>
     <header>
-        <div class="name">SizeMe</div>
+        <div class="navbar">
+            <div class="logo">
+                <img src="../static/images/logo.svg" alt="SizeMe Logo" class="logo-img">
+                FitMe
+            </div>
+            <nav>
+                <a href="/">
+                    <img src="../static/images/home.svg" alt="home Icon" class="nav-icon">
+                    Home
+                </a>
+                <a href="/demo/">
+                    <img src="../static/images/launch.svg" alt="Demo Icon" class="nav-icon">
+                    Demo
+                </a>
+            </nav>
+            <a href="https://github.com/AdityaRayapudi/SizeMe" target="_blank" class="github-link">
+                <img src="../static/images/github.svg" alt="GitHub Icon" class="nav-icon">
+                GitHub
+            </a>
+        </div>
     </header>
 
     <main method="POST">
-        <h1>Reccomended Size:</h1>
-        <p>put something here</p>
-    
         <h2>Predicted Measurements</h2>
-        <p>Height: {{data[0]}}</p>
-        <p>Category: {{data[1]}}</p>
+        <p>Chest Width: {{data[4]}}</p>
+        <p>Shoulder Width: {{data[0]}}</p>
+        <p>Waist: {{data[5]}}</p>
+        <p>Shoulder To Waist: {{data[2]}}</p>
+        <p>Arm Length: {{data[1]}}</p>
     </main>
 </body>
