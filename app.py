@@ -97,6 +97,8 @@ def predict_measurements(measurements, height, gender):
     predictions = model(x_data)
     data.extend(x_data[0].tolist())
     data.extend(predictions[0].tolist())
+    return render_template('results.html', data = data)
+
 
 
 
@@ -131,8 +133,6 @@ def results():
         height = request.form.get("height")
         category = request.form.get("category")
         predict_measurements(measurments, height, category)
-        data = [height, category]
-        return render_template('results.html', data = data)
 
 
 cv2.destroyAllWindows()
