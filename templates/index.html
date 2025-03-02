@@ -3,22 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
+    <title>FitMe</title>
     <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 <body>
     <header>
-        <div class="name">SizeMe</div>
-        <nav>
-            <a href="/documentation">Documentation</a>
-        </nav>
+        <div class="navbar">
+            <div class="logo">
+                <img src="../static/images/logo.svg" alt="FitMe Logo" class="logo-img">
+                FitMe
+            </div>
+            <nav>
+                <a href="documentation.html">
+                    <img src="../static/images/doc.svg" alt="Docs Icon" class="nav-icon">
+                    Documentation
+                </a>
+                <a href="demo.html">
+                    <img src="../static/images/launch.svg" alt="Demo Icon" class="nav-icon">
+                    Demo
+                </a>
+            </nav>
+            <a href="https://github.com" target="_blank" class="github-link">
+                <img src="../static/images/github.svg" alt="GitHub Icon" class="nav-icon">
+                GitHub
+            </a>
+        </div>
     </header>
 
     <main>
-        <h1>Get your size in seconds</h1>
-        <p>something about our product</p>
-
-        <a href="/demo">Try Demo</a>
+        <div class="hero">
+            <h1>FitMe</h1>
+            <p class="tagline">Get your size in seconds</p>
+            <div class="cta-buttons">
+                <a href="documentation.html" class="cta-button">
+                    Read Docs
+                    <img src="../static/images/arrow.svg" alt="Arrow Icon" class="button-icon">
+                </a>
+                <a href="demo.html" class="cta-button">
+                    Launch App
+                    <img src="../static/images/arrow.svg" alt="Arrow Icon" class="button-icon">
+                </a>
+            </div>
+        </div>
     </main>
 </body>
 </html>
