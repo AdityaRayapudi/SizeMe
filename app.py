@@ -45,14 +45,13 @@ def gen_frames():
             newTime = time.time()
 
             if startCountdown == True:
-                cv2.putText(img, str(int(10-(newTime-startTime))), (250, 250), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 3)
-
+                cv2.putText(img,str(int(10-(newTime-startTime))),(180,150),cv2.FONT_HERSHEY_COMPLEX,3,(255,255,255),16,cv2.LINE_AA)
+                cv2.putText(img,str(int(10-(newTime-startTime))),(180,150),cv2.FONT_HERSHEY_COMPLEX,3,(0,0,0),4,cv2.LINE_AA)
                 if int(10-(newTime-startTime)) == 0:
                     measurments = pm.Points(lmList)
                     print(measurments)
                     startCountdown = False
                     break
-
             try:
                 ret, buffer = cv2.imencode('.jpg', img)
                 img = buffer.tobytes()
